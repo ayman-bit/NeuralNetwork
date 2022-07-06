@@ -1,0 +1,17 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea/
+/uiDesigner.xml
+/runConfigurations.xml
+/project-template.xml
+/modules.xml
+/misc.xml
+/encodings.xml
+/description.html
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
