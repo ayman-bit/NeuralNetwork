@@ -37,6 +37,10 @@ public class RandomWeightGenerator {
 		this.nolinkprob = nolinkprob;
 	}
 
+	public static double GenerateNext() {
+		return nolinkprob;
+	}
+
 	// Generates random weights equal to zero with a probability of nolinkprob, and otherwise 
  	// uniformly distributed between lowerbound and upperbound.
 	public void GenerateRandomWeightFile()

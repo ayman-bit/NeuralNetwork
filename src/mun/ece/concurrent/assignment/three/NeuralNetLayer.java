@@ -6,6 +6,15 @@ import java.util.List;
 // Class representing a layer in an artificial neural network
 public class NeuralNetLayer extends Thread
 {
+	// Number of Neurons in this Layer
+	protected int numberOfNeuronsInLayer;
+
+	// Previous Layer that feeds values to this Layer
+	protected NeuralNetLayer previousLayer;
+
+	// Next Layer which this Layer will feed values to
+	protected NeuralNetLayer nextLayer;
+
 	// List of neurons in this layer
 	ArrayList<Neuron> neurons;
 
@@ -19,6 +28,38 @@ public class NeuralNetLayer extends Thread
 	{
 		this.neurons = neurons;
 		this.layertype = layertype;
+	}
+
+	public int getNumberOfNeuronsInLayer(){
+		return numberOfNeuronsInLayer;
+	}
+
+	// getListOfNeurons
+	// @return Returns the whole array of neurons of this layer
+	public ArrayList<Neuron> getListOfNeurons(){
+		return neurons;
+	}
+
+	// getPreviousLayer
+	// @return Returns the reference to the previous lay
+	protected NeuralNetLayer getPreviousLayer(){
+		return previousLayer;
+	}
+
+	protected NeuralNetLayer getNextLayer(){
+		return nextLayer;
+	}
+
+	// setPreviousLayer
+	// @param layer Sets the reference to the previous layer
+	protected void setPreviousLayer(NeuralNetLayer layer){
+		previousLayer=layer;
+	}
+
+	 // setNextLayer
+	 // @param layer Sets the reference to the next layer
+	protected void setNextLayer(NeuralNetLayer layer){
+		nextLayer=layer;
 	}
 		
 	@Override
