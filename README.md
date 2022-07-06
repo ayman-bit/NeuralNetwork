@@ -15,3 +15,11 @@ neurons in the next layer.
  - You are to use Java's CyclicBarrier concurrency structure to program a neural network
    simulator which takes as input parameter the number of internal layers L (assumed to be
    between 3 and 20 inclusive), and a text file named weights.txt
+ - Given an input vector x of length 4 over the non-negative real numbers, listed on one line in
+   a file named inputs.txt, your program should output the index of the maximum output
+   (between 1 and 3 inclusive) in the output layer.
+ - This corresponds to the output class index of the input vector x to the given neural network.
+ - Solution should use CountDownLatch or a similar synchronization mechanism, and each neuron in the
+   above network diagram should run as a separate thread.
+ - Can you reuse your synchronization mechanism? Why or why not?
+ 
