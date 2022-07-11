@@ -37,10 +37,6 @@ public class RandomWeightGenerator {
 		this.nolinkprob = nolinkprob;
 	}
 
-	public static double GenerateNext() {
-		return nolinkprob;
-	}
-
 	// Generates random weights equal to zero with a probability of nolinkprob, and otherwise 
  	// uniformly distributed between lowerbound and upperbound.
 	public void GenerateRandomWeightFile()
@@ -53,7 +49,8 @@ public class RandomWeightGenerator {
 			Weightoutput = new BufferedWriter(new FileWriter(WeightFile));
 			Weightoutput.write(Integer.toString(numL)+separator);
 			Double randweight;
-			// input layer
+	
+			// WEIGHTS BETWEEN INPUT LAYER AND FIRST INTERNAL LAYER
 			for (int i = 0; i < numneurons_inputlayer; i++)
 			{
 				for (int j = 0; j < numneurons_internallayer; j++)
@@ -79,8 +76,8 @@ public class RandomWeightGenerator {
 				}
 			}
 			
-			//internal layers
-			for (int l = 0; l < numL; l++)
+			// WEIGHTS BETWEEN INTERNAL LAYERS
+			for (int l = 0; l < numL-1; l++)
 			{
 				for (int i = 0; i < numneurons_internallayer; i++)
 				{
@@ -107,6 +104,8 @@ public class RandomWeightGenerator {
 					}
 				}
 			}
+
+			// WEIGHTS BETWEEN LAST INTERNAL LAYER AND OUTPUT LAYER
 			for (int i = 0; i < numneurons_internallayer; i++)
 			{
 				for (int j = 0; j < numneurons_outputlayer; j++)
@@ -122,7 +121,7 @@ public class RandomWeightGenerator {
 						randweight = lowerbound + (upperbound-lowerbound)*Math.random();
 						Weightoutput.write(randweight.toString());
 					}						
-					if (j < numneurons_outputlayer)
+					if (j < numneurons_outputlayer-1)
 					{
 						Weightoutput.write(", ");
 					}
